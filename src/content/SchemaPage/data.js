@@ -2,7 +2,7 @@ const schemas = {
   count: 5,
   schemas: [
     {
-      id: 1,
+      id: '1',
       name: 'strive_loe',
       version: '6mf9Eb8wTx',
       description:
@@ -40,7 +40,7 @@ const schemas = {
       tokens: 199,
     },
     {
-      id: 2,
+      id: '2',
       name: 'strive_loe',
       version: 'Cr33KWTETF',
       description:
@@ -128,7 +128,7 @@ const schemas = {
       tokens: 400,
     },
     {
-      id: 3,
+      id: '3',
       name: 'strive_loe',
       version: 'DAujgRcc55',
       description:
@@ -183,7 +183,7 @@ const schemas = {
       tokens: 284,
     },
     {
-      id: 4,
+      id: '4',
       name: 'strive_loe',
       version: 'K7R3pbjYQw',
       description:
@@ -238,7 +238,7 @@ const schemas = {
       tokens: 311,
     },
     {
-      id: 5,
+      id: '5',
       name: 'strive_loe',
       version: 'KfdEb9uSGJ',
       description:

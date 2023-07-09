@@ -1,5 +1,6 @@
 @use '@carbon/react/scss/spacing' as *;
 @use '@carbon/react/scss/colors';
+@use '@carbon/type';
 
 .schema-page__r1 {
   padding-top: $spacing-05;
@@ -28,4 +29,8 @@
 
 .schema-page__disabled_icon {
   fill: colors.$gray-50;
+}
+
+.schema-page__textarea_json textarea {
+  @include type.type-style('code-01');
 }

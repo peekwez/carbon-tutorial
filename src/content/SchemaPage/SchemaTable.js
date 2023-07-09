@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import {
   DataTable,
   TableContainer,
@@ -30,6 +31,8 @@ import {
   ErrorFilled,
 } from '@carbon/react/icons';
 
+import SchemaModal from './SchemaModal';
+
 const StatusIcon = ({ status }) => {
   return status === 'ACTIVE' ? (
     <CheckmarkFilled size={24} className="schema-page__active_icon" />
@@ -39,7 +42,7 @@ const StatusIcon = ({ status }) => {
 };
 
 const TagData = ({ fields }) => {
-  return fields.map(field => <Tag>{field}</Tag>);
+  return fields.map((field, id) => <Tag key={id}>{field}</Tag>);
 };
 
 const renderCell = ({ id, value }) => {
@@ -51,7 +54,7 @@ const renderCell = ({ id, value }) => {
     );
   } else if (id.includes('properties') || id.includes('definitions')) {
     return (
-      <TableCell is={id}>
+      <TableCell id={id}>
         <TagData fields={value} />
       </TableCell>
     );
@@ -67,6 +70,24 @@ const SchemaTable = ({ rows, headers }) => {
         type="multi">{`${JSON.stringify(row.schema, null, 2)}`}</CodeSnippet>
     ) : (
       ''
+    );
+  };
+
+  const ModalStateManager = ({
+    renderLauncher: LauncherContent,
+    children: ModalContent,
+  }) => {
+    const [open, setOpen] = useState(false);
+    return (
+      <>
+        {!ModalContent || typeof document === 'undefined'
+          ? null
+          : ReactDOM.createPortal(
+              <ModalContent open={open} setOpen={setOpen} />,
+              document.body
+            )}
+        {LauncherContent && <LauncherContent open={open} setOpen={setOpen} />}
+      </>
     );
   };
 
@@ -108,13 +129,22 @@ const SchemaTable = ({ rows, headers }) => {
                 tabIndex={getBatchActionProps().shouldShowBatchActions ? -1 : 0}
                 onChange={onInputChange}
               />
-              <Button
-                tabIndex={getBatchActionProps().shouldShowBatchActions ? -1 : 0}
-                onClick={() => console.log('clicked')}
-                size="small"
-                kind="primary">
-                Add new schema
-              </Button>
+              <ModalStateManager
+                renderLauncher={({ setOpen }) => (
+                  <Button
+                    tabIndex={
+                      getBatchActionProps().shouldShowBatchActions ? -1 : 0
+                    }
+                    onClick={() => setOpen(true)}
+                    size="lg"
+                    kind="primary">
+                    Add new schema
+                  </Button>
+                )}>
+                {({ open, setOpen }) => (
+                  <SchemaModal open={open} setOpen={setOpen} />
+                )}
+              </ModalStateManager>
             </TableToolbarContent>
           </TableToolbar>
           <Table {...getTableProps()}>
