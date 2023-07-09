@@ -1,0 +1,31 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/colors';
+
+.schema-page__r1 {
+  padding-top: $spacing-05;
+  padding-bottom: $spacing-05;
+}
+
+.schema-page__th {
+  min-width: $spacing-10;
+}
+
+.schema-page__status_td {
+  text-align: center !important;
+}
+
+.schema-page__code {
+  max-width: 8.75 * $spacing-13;
+}
+
+.schema-page__code .cds--snippet-container {
+  width: 100%;
+}
+
+.schema-page__active_icon {
+  fill: colors.$green-50;
+}
+
+.schema-page__disabled_icon {
+  fill: colors.$gray-50;
+}
