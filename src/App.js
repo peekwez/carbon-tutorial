@@ -5,6 +5,9 @@ import TutorialHeader from './components/TutorialHeader';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LandingPage from './content/LandingPage';
 import RepoPage from './content/RepoPage';
+import SchemaPage from './content/SchemaPage';
+import TaskPage from './content/TaskPage';
+import DemoPage from './content/DemoPage';
 
 class App extends Component {
   render() {
@@ -17,6 +20,9 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route path="/repos" component={RepoPage} />
+            <Route path="/schemas" component={SchemaPage} />
+            <Route path="/tasks" component={TaskPage} />
+            <Route path="/demos" component={DemoPage} />
           </Switch>
         </Content>
       </BrowserRouter>
