@@ -26,13 +26,13 @@ const TutorialHeader = () => (
           onClick={onClickSideNavExpand}
           isActive={isSideNavExpanded}
         />
-        <HeaderName as={Link} to="/" prefix="PwC">
+        <HeaderName as={Link} to="/" prefix="GDX">
           Document Extraction
         </HeaderName>
         <HeaderNavigation aria-label="Document Extraction">
-          <HeaderMenuItem as={Link} to="/repos">
+          {/* <HeaderMenuItem as={Link} to="/repos">
             Repositories
-          </HeaderMenuItem>
+          </HeaderMenuItem> */}
           <HeaderMenuItem as={Link} to="/schemas">
             Schemas
           </HeaderMenuItem>
@@ -49,9 +49,9 @@ const TutorialHeader = () => (
           isPersistent={false}>
           <SideNavItems>
             <HeaderSideNavItems>
-              <HeaderMenuItem as={Link} to="/repos">
+              {/* <HeaderMenuItem as={Link} to="/repos">
                 Repositories
-              </HeaderMenuItem>
+              </HeaderMenuItem> */}
               <HeaderMenuItem as={Link} to="/schemas">
                 Schemas
               </HeaderMenuItem>

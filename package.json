@@ -24,6 +24,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "5.0.0",
     "react-scripts": "5.0.1",
+    "react-transition-group": "^4.4.5",
     "sass": "1.51.0"
   },
   "devDependencies": {
@@ -77,5 +78,5 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "proxy": "http://localhost:8000"
+  "proxy": "http://127.0.0.1:8000"
 }

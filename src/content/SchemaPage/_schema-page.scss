@@ -34,3 +34,8 @@
 .schema-page__textarea_json textarea {
   @include type.type-style('code-01');
 }
+
+.schema-page__notification {
+  margin-top: $spacing-05;
+  margin-bottom: $spacing-05;
+}

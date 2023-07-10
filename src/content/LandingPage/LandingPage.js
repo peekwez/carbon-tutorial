@@ -12,7 +12,12 @@ import {
   Column,
 } from '@carbon/react';
 import { InfoSection, InfoCard } from '../../components/Info';
-import { Globe, Application, PersonFavorite } from '@carbon/react/icons';
+import {
+  Globe,
+  Application,
+  PersonFavorite,
+  ContainerServices,
+} from '@carbon/react/icons';
 
 const LandingPage = () => {
   return (
@@ -24,7 +29,7 @@ const LandingPage = () => {
           </BreadcrumbItem>
         </Breadcrumb>
         <h1 className="landing-page__heading">
-          Design &amp; build with Carbon
+          Analyze &amp; Parse Documents using GDX
         </h1>
       </Column>
       <Column lg={16} md={8} sm={4} className="landing-page__r2">
@@ -42,13 +47,12 @@ const LandingPage = () => {
                   lg={7}
                   sm={4}
                   className="landing-page__tab-content">
-                  <h2 className="landing-page__subheading">What is Carbon?</h2>
+                  <h2 className="landing-page__subheading">What is GDX?</h2>
                   <p className="landing-page__p">
-                    Carbon is IBM’s open-source design system for digital
-                    products and experiences. With the IBM Design Language as
-                    its foundation, the system consists of working code, design
-                    tools and resources, human interface guidelines, and a
-                    vibrant community of contributors.
+                    Generative Document Extraction is a platform for analysis
+                    document and extracting relevant information into structured
+                    data output. The platform uses advanced Optical Character
+                    Recognition (OCR) and Generative AI tools to extract data.
                   </p>
                   <Button>Learn more</Button>
                 </Column>
@@ -91,19 +95,19 @@ const LandingPage = () => {
       <Column lg={16} md={8} sm={4} className="landing-page__r3">
         <InfoSection heading="The Principles">
           <InfoCard
-            heading="Carbon is Open"
-            body="It's a distributed effort, guided by the principles of the open-source movement. Carbon's users are also it's makers, and everyone is encouraged to contribute."
-            icon={() => <PersonFavorite size={32} />}
-          />
-          <InfoCard
-            heading="Carbon is Modular"
-            body="Carbon's modularity ensures maximum flexibility in execution. It's components are designed to work seamlessly with each other, in whichever combination suits the needs of the user."
+            heading="Accuracy"
+            body="GDX uses the best in class OCR and AI tools to extract data from documents. The platform is built on top Googles Document AI and Open AI's GPT models."
             icon={() => <Application size={32} />}
           />
           <InfoCard
-            heading="Carbon is Consistent"
-            body="Based on the comprehensive IBM Design Language, every element and component of Carbon was designed from the ground up to work elegantly together to ensure consistent, cohesive user experiences."
-            icon={() => <Globe size={32} />}
+            heading="Customization"
+            body="GDX's can be customized to each users needs. Users can define their own extraction schemas and use the best in class OCR and AI tools to extract data from documents."
+            icon={() => <PersonFavorite size={32} />}
+          />
+          <InfoCard
+            heading="Scalability"
+            body="GDX can be run in both online and batch mode. The platform is built on top of Kubernetes and can be scaled to meet the needs of any organization."
+            icon={() => <ContainerServices size={32} />}
           />
         </InfoSection>
       </Column>

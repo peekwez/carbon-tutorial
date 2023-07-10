@@ -7,9 +7,7 @@ import {
   Grid,
   Column,
 } from '@carbon/react';
-import schemas from './data';
-// import { gdxAPI } from '../../services';
-// const octokitClient = new Octokit({});
+import { gdxAPI } from '../../services';
 
 const headers = [
   {
@@ -45,7 +43,8 @@ const headers = [
 const getRowItems = rows =>
   rows.map(row => ({
     ...row,
-    key: row.version,
+    id: `${row.name}-${row.version}`,
+    key: `${row.name}-${row.version}-${row.status.toLowerCase()}}}`,
     name: row.name,
     description: row.description,
     version: row.version,
@@ -67,20 +66,10 @@ const SchemaPage = () => {
 
   useEffect(() => {
     async function getSchemas() {
-      // const res = await gdxAPI({ method: 'GET', path: '/api/v1/schemas/list' });
-      // //const data = await res.json();
-      // console.log(res);
-      // console.log(res.status);
-      // console.log(data);
-      // console.log(data);
-      // const movies = await response.json();
-      const res = {
-        status: 200,
-        data: schemas,
-      };
-
+      const res = await gdxAPI.get({ path: '/api/v1/schema/list' });
+      const data = await res.json();
       if (res.status === 200) {
-        setRows(getRowItems(res.data.schemas));
+        setRows(getRowItems(data.schemas));
       } else {
         setError('Error obtaining schema data');
       }
